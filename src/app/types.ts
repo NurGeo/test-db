@@ -22,20 +22,20 @@ export type RepoResult = {
 export type TesterResult = Record<TestType, RepoResult>;
 
 export type DomainObjectFactoryConfig = {
-  govIDdigitLength: number,
-}
+  govIDdigitLength: number;
+  objIDByteLength: number;
+};
 
 export type CompanyFactoryConfig = DomainObjectFactoryConfig & {
-  nameLength: number,
-  nameCharacters: string,
-}
+  nameLength: number;
+  nameCharacters: string;
+};
 
-export type UserFactoryConfig = DomainObjectFactoryConfig & {
-  objIDByteLength: number,
-  firstNameLength: number,
-  lastNameLength: number,
-  firstNameCharacters: string,
-  lastNameCharacters: string,
-  ageMinValue: number,
-  ageMaxValue: number,
-}
+export type PersonFactoryConfig = DomainObjectFactoryConfig & {
+  firstNameLength: number;
+  lastNameLength: number;
+  firstNameCharacters: string;
+  lastNameCharacters: string;
+  ageMinValue: number;
+  ageMaxValue: number;
+};

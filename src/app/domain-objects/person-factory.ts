@@ -1,25 +1,19 @@
-import { randomBytes  } from "crypto";
-import { UserFactoryConfig } from "../types";
+import { PersonFactoryConfig } from "../types";
 import { DomainObjectFactory } from "./domain-object-factory";
-import { UserRecord } from "./user";
+import { PersonRecord } from "./person";
 
-export class UserFactory extends DomainObjectFactory<UserFactoryConfig>{
+export class PersonFactory extends DomainObjectFactory<PersonFactoryConfig>{
 
-  getUser(): UserRecord {
+  async getPerson(): Promise<PersonRecord> {
     return {
       numID: this.nextNumID(),
       govID: this.nextGovID(),
       objID: this.nextObjID(),
-      fName: this.nextName('firstName'),
-      lName: this.nextName('lastName'),
+      firstName: this.nextName('firstName'),
+      lastName: this.nextName('lastName'),
       age: this.nextAge(),
       familyStatus: this.nextFamilyStatus(),
-      companyID: '',
     }
-  }
-
-  private nextObjID(): string {
-    return randomBytes(this.config.objIDByteLength).toString('hex');
   }
 
   protected nextName(charsAttrsPrefix: 'lastName' | 'firstName'): string {

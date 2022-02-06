@@ -1,8 +1,7 @@
-import { DomainObjectFactoryConfig } from "../types";
+import { randomBytes  } from "crypto";
+import {DomainObjectFactoryConfig} from '../types';
 
-export abstract class DomainObjectFactory<
-  C extends DomainObjectFactoryConfig
-> {
+export abstract class DomainObjectFactory<C extends DomainObjectFactoryConfig> {
   private i = 0;
 
   protected config: C;
@@ -17,18 +16,21 @@ export abstract class DomainObjectFactory<
   }
 
   protected nextGovID(): string {
-    return String(Math.floor(
-      Math.random() * Math.pow(10, this.config.govIDdigitLength)
-    )).padStart(this.config.govIDdigitLength, '0');
+    return String(
+      Math.floor(Math.random() * Math.pow(10, this.config.govIDdigitLength))
+    ).padStart(this.config.govIDdigitLength, '0');
+  }
+
+  protected nextObjID(): string {
+    return randomBytes(this.config.objIDByteLength).toString('hex');
   }
 
   protected nextRandomString(characters: string, length: number): string {
-    var charactersLength = characters.length;
+    const charactersLength = characters.length;
     let result = '';
-    for ( var i = 0; i < length; i++ ) {
+    for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
+    }
+    return result;
   }
-
 }

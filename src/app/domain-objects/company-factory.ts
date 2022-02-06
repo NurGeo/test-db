@@ -1,23 +1,22 @@
-import { CompanyFactoryConfig } from "../types";
-import { CompanyRecord } from "./company";
-import { DomainObjectFactory } from "./domain-object-factory";
+import {CompanyFactoryConfig} from '../types';
+import {CompanyRecord} from './company';
+import {DomainObjectFactory} from './domain-object-factory';
 
-export class CompanyFactory extends DomainObjectFactory<
-  CompanyFactoryConfig
->{
-  getCompany(): CompanyRecord {
+export class CompanyFactory extends DomainObjectFactory<CompanyFactoryConfig> {
+  async getCompany(): Promise<CompanyRecord> {
     return {
       numID: this.nextNumID(),
       govID: this.nextGovID(),
+      objID: this.nextObjID(),
       name: this.nextName(),
-      employees: []
-    }
+      employees: '',
+    };
   }
 
   protected nextName(): string {
     return super.nextRandomString(
       this.config.nameCharacters,
       this.config.nameLength
-    )
+    );
   }
 }
