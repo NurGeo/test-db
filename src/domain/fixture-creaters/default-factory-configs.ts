@@ -1,12 +1,11 @@
-import { CompanyFactoryConfig, PersonFactoryConfig } from "../types";
+import {CompanyFactoryConfig, PersonFactoryConfig} from '../types';
 
-const defNameCharacters = (
+const defNameCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
   'abcdefghijklmnopqrstuvwxyz' +
   '0123456789' +
   'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ' +
-  'йцукенгшщзхъфывапролджэячсмитьбю'
-);
+  'йцукенгшщзхъфывапролджэячсмитьбю';
 
 export const defaultPersonFactoryConfig: PersonFactoryConfig = {
   ageMaxValue: 60,
@@ -17,11 +16,11 @@ export const defaultPersonFactoryConfig: PersonFactoryConfig = {
   firstNameCharacters: defNameCharacters,
   objIDByteLength: 12,
   govIDdigitLength: 12,
-}
+};
 
 export const defaultCompanyFactoryConfig: CompanyFactoryConfig = {
   objIDByteLength: 12,
   nameLength: 50,
   nameCharacters: defNameCharacters,
   govIDdigitLength: 12,
-}
+};

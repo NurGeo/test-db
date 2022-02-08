@@ -1,5 +1,5 @@
 import {CompanyFactoryConfig} from '../types';
-import {CompanyRecord} from './company';
+import {CompanyRecord} from '../domain-objects/company';
 import {DomainObjectFactory} from './domain-object-factory';
 
 export class CompanyFactory extends DomainObjectFactory<CompanyFactoryConfig> {
@@ -9,7 +9,7 @@ export class CompanyFactory extends DomainObjectFactory<CompanyFactoryConfig> {
       govID: this.nextGovID(),
       objID: this.nextObjID(),
       name: this.nextName(),
-      employees: '',
+      employees: [],
     };
   }
 

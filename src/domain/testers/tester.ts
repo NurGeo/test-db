@@ -1,4 +1,4 @@
-import {GeneralTestRepository} from '../repositories/test-repository';
+import {GeneralTestRepository} from '../repositories/test-domain-repository';
 import {TesterResult} from '../types';
 
 export abstract class Tester {

@@ -1,4 +1,4 @@
-import { randomBytes  } from "crypto";
+import {randomBytes} from 'crypto';
 import {DomainObjectFactoryConfig} from '../types';
 
 export abstract class DomainObjectFactory<C extends DomainObjectFactoryConfig> {
